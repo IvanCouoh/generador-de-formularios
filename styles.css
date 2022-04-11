@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 250px auto;
+    grid-template-rows: 50px auto;
+    grid-template-areas:
+        "aside header"
+        "aside main";
+    height: 100vh;
+}
+
+.header {
+    background-color: #fff;
+    grid-area: header;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% - 250px);
+}
+
+.header_title {
+    text-align: center;
+    margin-top: 5px;
+    height: 50px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+
+.aside {
+    background-color: #223a54;
+    grid-area: aside;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    width: 250px;
+    height: 100%;
+}
+
+.aside_title {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.aside_controls {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.aside_controls p {
+    color: #fff;
+    text-align: center;
+    font-size: 14pt;
+    margin: 10px 0 -10px 0;
+}
+
+.control {
+    margin-top: 15px;
+    padding: 10px 0;
+    border: none;
+    border-radius: 7px;
+    font-size: 12pt;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #fff;
+    background-color: #f5882b;
+}
+
+.control:hover {
+    color: #f5882b;
+    background-color: #fff;
+    border: 2px solid #f5882b;
+}
+
+.main {
+    background-color: #e9e9e9;
+    grid-area: main;
+    padding: 15px;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 35px;
+    width: 40%;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.form p {
+    text-align: center;
+    font-size: 15pt;
+}
+
+.form h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#container_inputs {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0 10px;
+}
+
+.reset_form {
+    margin-top: 15px;
+    color: #ff0000;
+    background-color: #fff;
+    height: 40px;
+    font-size: 12pt;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #ff0000;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.input__Container {
+    display: flex;
+}
+
+label {
+    grid-column: 1/3;
+    text-align: start;
+}
+
+input, select {
+    grid-column: 1/2;
+    outline: none;
+    height: 35px;
+    border: 1px solid #888888;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1rem;
+}
+
+input[type="range"] {
+    padding: 0;
+    margin: 0;
+}
+
+input:not([type="file"], [type="reset"], [type="submit"], [type="reset"]):hover {
+    border: 2px solid #4747475d;
+}
+
+input:not([type="file"], [type="reset"], [type="submit"], [type="reset"]):focus {
+    border: 2px solid #0077ff98;
+}
+
+input[type="file"] {
+    border: none;
+}
+
+img {
+    grid-column: 2/3;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.remove-icon {
+    width: 19px;
+    cursor: pointer;
+    color: red;
+    font-size: 20px;
+}
+
+.btn {
+    cursor: pointer;
+    border: solid 1px #fff;
+    background-color: #223a54;
+    color: #fff;
+    height: 40px;
+    font-size: 12pt;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.alert {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    margin: 70px 15px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    background-color: #13ca13;
+    color: #fff;
+    height: 40px;
+    border-radius: 5px;
+    display: none;
+}
+
+textarea {
+    width: 100%;
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.5.3/dist/clipboard.min.js"></script>
+    <title>Generador de formularios - Javier Herrera</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="header_title">Generador de formularios</h1>
+        </header>
+        <aside class="aside">
+            <h1 class="aside_title">Controles</h1>
+            <div class="aside_controls">
+                <button class="control" onclick="addInput('text')">Texto</button>
+                <button class="control" onclick="addInput('number')">Número</button>
+                <button class="control" onclick="addInput('tel')">Teléfono</button>
+                <button class="control" onclick="addInput('url')">URL</button>
+                <button class="control" onclick="addInput('email')">Email</button>
+                <button class="control" onclick="addInput('password')">Contraseña</button>
+                <button class="control" onclick="addInput('submit')">Botón</button>
+                <button class="control" onclick="addInput('radio')">Radio Button</button>
+                <button class="control" onclick="addInput('checkbox')">CheckBox</button>
+                <button class="control" onclick="addInput('date')">Fecha</button>
+                <button class="control" onclick="addInput('time')">Hora</button>
+                <button class="control" onclick="addInput('datetime-local')">Fecha y hora</button>
+                <button class="control" onclick="addInput('week')">Semana</button>
+                <button class="control" onclick="addInput('month')">Mes</button>
+                <button class="control" onclick="addInput('file')">Archivo</button>
+                <button class="control" onclick="addInputSelect()">Lista de opciones</button>
+                <button class="control" onclick="addInput('range')">Rango</button>
+            </div>
+        </aside>
+        <main class="main">
+            <div id="form">
+                <form class="form">
+                    <h2 id="form-title">Mi formulario</h2>
+                    <div id="container_inputs"></div>
+                </form>
+
+                <style>
+                    * {
+                        margin: 0;
+                        box-sizing: border-box;
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    }
+
+                    .form {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        padding: 35px;
+                        width: 40%;
+                        margin: auto;
+                        background-color: #fff;
+                        border-radius: 10px;
+                        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                    }
+
+                    .form p {
+                        text-align: center;
+                        font-size: 15pt;
+                    }
+
+                    .form h2 {
+                        text-align: center;
+                        margin-bottom: 15px;
+                    }
+
+                    #container_inputs {
+                        display: grid;
+                        grid-template-columns: 1fr auto;
+                        gap: 0 10px;
+                    }
+
+                    label {
+                        grid-column: 1/3;
+                        text-align: start;
+                    }
+
+                    input,
+                    select {
+                        grid-column: 1/2;
+                        outline: none;
+                        height: 35px;
+                        border: 1px solid #888888;
+                        border-radius: 5px;
+                        padding: 5px 10px;
+                        font-size: 1rem;
+                    }
+
+                    input[type="range"] {
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    input:not([type="file"], [type="reset"], [type="submit"], [type="reset"]):hover {
+                        border: 2px solid #4747475d;
+                    }
+
+                    input:not([type="file"], [type="reset"], [type="submit"], [type="reset"]):focus {
+                        border: 2px solid #0077ff98;
+                    }
+
+                    input[type="file"] {
+                        border: none;
+                    }
+
+                    img {
+                        grid-column: 2/3;
+                    }
+                </style>
+
+            </div>
+            <button class="reset_form" id="btn-export">Exportar código</button>
+            <button class="reset_form" id="btn-reset-form">Limpiar formulario</button>
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="close-icon">&times;</span>
+                    <p>Código fuente</p>
+                    <textarea rows="20" cols="100" name="code" class="" id="code" readonly></textarea>
+                    <button class="btn" data-clipboard-target="#code" id="copy-code">
+                        Copiar al portapapeles
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="alert" id="alert">
+        ¡Código copiado!
+    </div>
+</body>
+<script src="main.js"></script>
+
+</html>
